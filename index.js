@@ -29,6 +29,18 @@ app.get('/', (req, res) => {
     res.send('hello ryan lee')
 })
 
+
+app.get('/api/pepole', (req, res) => {
+    Pepole.find({})
+        .then(() => {
+            res.status(200).send('success')
+        })
+        .catch((err) => {
+            res.status(300).send('not found')
+        })
+})
+
+
 app.post('/api/pepole', (req, res) => {
     let { name, email, phone, age } = req.body
 
