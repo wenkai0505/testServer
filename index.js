@@ -32,8 +32,11 @@ app.get('/', (req, res) => {
 
 app.get('/api/pepole', (req, res) => {
     Pepole.find({})
-        .then(() => {
-            res.status(200).send('success')
+        .then((data) => {
+            res.status(200).send({
+                success: true,
+                data: data
+            })
         })
         .catch((err) => {
             res.status(300).send('not found')
