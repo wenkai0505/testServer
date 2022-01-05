@@ -2,6 +2,9 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const Pepole = require('./models/pepole')
+const cors = require('cors')
+
+
 let port = process.env.PORT || 8080
 
 
@@ -19,6 +22,7 @@ mongoose
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(cors())
 
 
 app.get('/', (req, res) => {
